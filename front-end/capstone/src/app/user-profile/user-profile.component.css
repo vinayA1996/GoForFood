@@ -1,0 +1,75 @@
+.card-content {
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    width: 40%;
+    box-shadow: 5px 5px 5px gray;
+    animation: fadeIn 1s 1;
+}
+
+.mat-mdc-card-content{
+    padding-top: 0 !important;
+}
+
+#edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.img{
+    margin-bottom: 0.1rem;
+}
+
+#photo{
+    border-radius: 50%;
+    /* margin-bottom: 0.1rem; */
+}
+
+#file{
+    display: none;
+}
+
+#upload{
+    color: white;
+    background-color: gray;
+    padding: 0.3rem;
+    margin-top: 0.1rem;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-image {
+    width: 150px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image img{
+    margin: 0.2rem auto;
+    border-radius: 50%;
+}
+
+.profile-image button{
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.589);
+    font-size: smaller;
+    width: 120px;
+}
+/* @keyframes fadeIn {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+} */

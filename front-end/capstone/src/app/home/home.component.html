@@ -1,0 +1,41 @@
+<div class="main font">
+    <div id="phrase">
+        <div id="layer">
+            <span class="span"></span><br>
+            <span class="text">Just <strong>Go4Food</strong></span>
+            <div class="features">
+                <p class="p"><img src="../../assets/smartphone.png" width="50" alt=""><span>Choose your favorite meal</span></p>
+                <p class="p"><img src="../../assets/check.png" width="50" alt=""><span>Place an order</span></p>
+                <p class="p"><img src="../../assets/food-blogger.png" width="50" alt=""><span>Enjoy your meal</span></p>
+            </div>
+        </div>
+        <div id="bg">
+
+        </div>
+        
+    </div>
+    <div id="content">
+        <div class="content" >
+            <div style="width: 90%; margin: 0 auto;">
+                <h1>
+                    From swanky upscale restaurants to the cosiest hidden gems serving the most incredible food, <strong style="color: black;">Go4Food</strong>
+                    covers it all. Explore menu and restaurants of popular locations in India and find your next great meal.
+                </h1>
+            </div>
+            <div class="cards">
+                <div class="card" *ngFor="let c of cities;let j=index">
+                    <a routerLink="{{c.city}}/restaurants" (click)="goTo(j)">
+                        <img src="{{c.image}}" alt="">
+                        <div class="card-content">
+                            <h3>
+                                {{c.city}} Restaurants
+                            </h3>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

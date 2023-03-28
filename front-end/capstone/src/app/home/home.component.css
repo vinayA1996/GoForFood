@@ -1,0 +1,155 @@
+#phrase{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/louis-hansel-iwv3olQG60k-unsplash.jpg');
+    background-size: 110% 110%;
+    background-position: 100% ;
+    font-size: 1.3rem;
+    display: flex;
+}
+
+#layer{
+    color: white;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.473);
+}
+
+/* #bg{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/brooke-lark-W9OKrxBqiZA-unsplash.jpg');
+    background-size: 120% 120%;
+    z-index: -1;
+    animation: rotate 15s infinite alternate-reverse;
+    animation-timing-function: cubic-bezier(0.68, -0.63, 0.53, 0.4);
+} */
+
+@keyframes rotate {
+    95%,
+    100% {
+      transform: rotate(0.3turn) scale(1.6);
+    }
+  }
+
+#layer .span{
+    font-size: 1.5rem;
+    margin-left: 6.5rem;
+    margin-top: 10%;
+}
+#layer .text{
+    font-size: 3rem;
+    margin-left: 6rem;
+    margin-top: -1rem;
+}
+
+#layer .features{
+    margin-left: 0.5rem;
+}
+
+#layer p{
+    font-size: 1.5rem;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+#layer p span{
+   margin-left: 1rem;
+}
+
+#layer #img1{
+    width: 100%;
+    height: 200px;
+    background-image: url('../../assets/pngfind.com-table-top-png-2158748.png');
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    background-position: 60% 0;
+}
+
+#layer #img2{
+    width: 100%;
+    height: 200px;
+    /* background-image: url(''); */
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    background-position: 90% 0;
+}
+
+#image{
+    background-image: url('../../assets/pngfind.com-food-dish-png-734350.png');
+    background-size: 80% 40% ;
+    background-position: 20% 50%;
+    background-repeat: no-repeat;
+    width: 30%;
+}
+
+.content{
+    height: 100vh;
+    width: 80%;
+    margin : 0 auto;
+    background-color: white(35, 236, 8);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: light;
+    color: rgb(80, 79, 79);
+    padding-top: 10%;
+}
+
+#content{
+    width: 100%;
+    background-color: rgba(2, 2, 255, 0.144);
+}
+
+.cards{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 3rem;
+}
+
+.cards img{
+    height: 80px;
+    width: 40%;
+    border-radius: 50%;
+}
+
+.card{
+    width: 70%;
+    padding: 1rem;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.062);
+    transition: all 0.2s linear;
+ 
+}
+
+.card:hover{
+    background-color: rgba(0, 0, 0, 0.253);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.card a{
+    text-decoration: none;
+    color: black;
+}
+
+.card-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}

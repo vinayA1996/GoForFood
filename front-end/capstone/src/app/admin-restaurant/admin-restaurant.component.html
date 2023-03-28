@@ -1,0 +1,71 @@
+<div id="city">
+  <form [formGroup]="citySelection">
+    <br>
+    <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Select City</h1>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Select City</mat-label>
+        <mat-select name="location" formControlName="location" [(ngModel)]="Rescity">
+          <mat-option *ngFor="let c of cities" [value]="c.city">{{c.city}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;
+      <button mat-raised-button color="accent" type="submit" (click)="restaurants()" [disabled]="citySelection.invalid">Submit</button>
+    </div>
+  </form>
+
+  <form [formGroup]="resSelection">
+    <br>
+    <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Select Restaurant</h1>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Select Restaurant</mat-label>
+        <mat-select name="Restaurant" formControlName="Restaurant" [(ngModel)]="rest">
+          <mat-option *ngFor="let res of Restaurants" [value]="res">
+            {{res.resName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;
+      <!-- <button mat-raised-button color="accent" type="submit" (click)="editRes()">Submit</button> -->
+      &nbsp;
+      <button mat-raised-button color="accent" (click)="showRestaurantAdd();editRes()" [disabled]="resSelection.invalid">Edit Restaurant</button>
+    </div>
+  </form>
+
+  <div class="resDetails" *ngIf="showAddRestaurant">
+    <form [formGroup]="addRestaurants">
+      <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Add Restaurant Details</h1>
+      <div class="herounit">
+        <div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Restaurant Name</mat-label>
+              <input type="text" readonly matInput name="restaurant" formControlName="resName" [(ngModel)]="rName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Restaurant Rating</mat-label>
+              <input type="text" matInput name="rating" formControlName="rating" [(ngModel)]="rRating">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- <button mat-raised-button color="accent" type="submit" [disabled]="addRestaurants.invalid" >Submit Data</button> -->
+      </div>
+      <div class="resimg" *ngIf="rImage">
+        <img src="{{rImage}}" alt="">
+      </div>
+    </form>
+    <div style="display: flex;">
+      <button mat-raised-button color="warn" (click)="updateRestaurant()">Update</button>
+      <button style="margin-left: 1rem;" *ngIf="!active" mat-raised-button color="primary" (click)="activeStatus()">Activate</button>
+      <button style="margin-left: 1rem;" *ngIf="active" mat-raised-button color="primary" (click)="activeStatus()">Deactivate</button>
+    </div>
+  </div>
+</div>

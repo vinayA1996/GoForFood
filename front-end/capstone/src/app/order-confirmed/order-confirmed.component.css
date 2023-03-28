@@ -1,0 +1,185 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(209, 236, 243);
+}
+
+.box{
+    width: 90%;
+    margin: auto;
+    margin-top: 3%;
+}
+
+label {
+    position: relative;
+    height: 125px;
+    width: 125px;
+    display: inline-block;
+    border: 4px solid rgba(238, 206, 206, 0.2);
+    border-radius: 50%;
+    border-left-color: #5cb85c;
+    animation: rotate 1.2s linear infinite;
+    margin: auto;
+}
+
+@keyframes rotate {
+    50% {
+        border-left-color: #9b59b6;
+    }
+
+    75% {
+        border-left-color: #e67e22;
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+label .check-icon {
+    display: none;
+}
+
+label .check-icon:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 28px;
+    transform: scaleX(-1) rotate(135deg);
+    height: 56px;
+    width: 28px;
+    border-top: 4px solid #5cb85c;
+    border-right: 4px solid #5cb85c;
+    transform-origin: left top;
+    animation: check-icon 1.5s ease;
+}
+
+@keyframes check-icon {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+
+    20% {
+        height: 0;
+        width: 28px;
+        opacity: 1;
+    }
+
+    40% {
+        height: 56px;
+        width: 28px;
+        opacity: 1;
+    }
+
+    100% {
+        height: 56px;
+        width: 28px;
+        opacity: 1;
+    }
+}
+
+input {
+    display: none;
+}
+
+input:checked~label .check-icon {
+    display: block;
+}
+
+input:checked~label {
+    animation: none;
+    border-color: #5cb85c;
+    transition: border 0.5s ease-out;
+}
+
+.confirmation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.display {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    animation: appear 1.5s 1;
+    
+}
+
+@keyframes appear{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+h1 {
+    color: #5cb85c;
+    margin-bottom: 1rem;
+}
+
+.details{
+    text-align: left;
+    padding: 1rem 2rem;
+    background-color: #bbbbbb67;
+}
+
+.user-details p{
+    margin-bottom: 0.3rem;
+}
+
+hr{
+    margin-top: 1rem;
+}
+
+.order-details{
+    width: 80%;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+.head{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr 1fr 1fr;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr 1fr 1fr;
+}
+
+.total{
+    margin-top: 1rem;
+}
+
+.total p {
+    margin-bottom: 0.5rem;
+}
+
+/* .btn-container {
+    width: 250px;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: rgba(255, 94, 0, 0.932);
+    color: white;
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 94, 0);
+} */

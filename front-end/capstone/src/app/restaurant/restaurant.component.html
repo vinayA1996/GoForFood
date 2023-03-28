@@ -1,0 +1,34 @@
+<body>
+    <div class="main font">
+        <h1>
+            Best Restaurants in {{city}}
+        </h1>
+        <app-restaurant-search (searchTextChanged)="onSearchTextChanged($event)"></app-restaurant-search>
+        <div class="cards">
+            <div class="card" *ngFor="let r of restaurants;let j=index">
+                
+              
+                <img src="{{r.image}}" alt="">
+                <div class="card-content">
+                    <span>
+                        <h3 style="font-weight: lighter;">{{r.resName}}</h3>
+                    </span>
+                    <div   *ngIf="r.active">
+                    <div style="display: flex; justify-content: space-between; align-items: center;   margin-top: 0.5rem;">
+                        <p id="rating">{{r.rating}} <i class="fa-solid fa-star" style="font-size: smaller"></i></p>
+                        <a routerLink="{{r.resName}}/menu" (click)="goTo(j)">
+                            <span><button id="menu">Menu</button></span>
+                        </a>
+                        <span><button id="fav" (click)="addToFavorite(email,r,j)"><i id="heart" name="r-icon"
+                                    class="fa-heart fa-regular fa-2x"></i></button></span>
+                    </div>
+                </div>
+                <div>
+                    <h5 style="font-weight: lighter;" *ngIf="!r.active" style="color: red;">Not Active</h5>
+                </div>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+</body>

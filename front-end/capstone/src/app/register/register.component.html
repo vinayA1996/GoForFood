@@ -1,0 +1,201 @@
+<div id="form" class="font">
+    <form (ngSubmit)="registered()" [formGroup]="registrationDetails">
+        <h1 style="font-size: 2rem; margin-bottom: 1rem;">User Registration</h1>
+        <div class="outer">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput formControlName="firstName" [(ngModel)]="user.firstName" maxlength="15"
+                        minlength="4">
+                </mat-form-field>
+
+                <div *ngIf="firstName?.touched && firstName?.invalid">
+                    <div *ngIf="firstName?.errors?.['required']" class="error">
+                        First Name is required
+                    </div>
+                    <div *ngIf="firstName?.errors?.['minlength']" class="error">
+                        First Name should have at 4 least characters
+                    </div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input type="email" matInput formControlName="lastName" [(ngModel)]="user.lastName">
+                </mat-form-field>
+
+                <div *ngIf="lastName?.touched && lastName?.invalid">
+                    <div *ngIf="lastName?.errors?.['required']" class="error">
+                        Last Name is required
+                    </div>
+                    <div *ngIf="email?.errors?.['minlength']" class="error">
+                        Last Name should have at 4 least characters
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outer">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput formControlName="username" [(ngModel)]="user.username" maxlength="15"
+                        minlength="4">
+                </mat-form-field>
+
+                <div *ngIf="username?.touched && username?.invalid">
+                    <div *ngIf="username?.errors?.['required']" class="error">
+                        Username is required
+                    </div>
+                    <div *ngIf="username?.errors?.['minlength']" class="error">
+                        Username should have at 4 least characters
+                    </div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" [(ngModel)]="user.email">
+                </mat-form-field>
+
+                <div *ngIf="email?.touched && email?.invalid">
+                    <div *ngIf="email?.errors?.['required']" class="error">
+                        Email is required
+                    </div>
+                    <div *ngIf="email?.errors?.['pattern']" class="error">
+                        Enter a valid email
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outer">
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password" [(ngModel)]="user.password">
+                </mat-form-field>
+
+                <div *ngIf="password?.touched && password?.invalid">
+                    <div *ngIf="password?.errors?.['required']" class="error">
+                        Password is required
+                    </div>
+                    <div *ngIf="password?.errors?.['pattern']" class="error">
+                        Password must contain at least 8 characters(one uppercase letter, one lowercase letter, one
+                        number & one
+                        special character)
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="password" matInput formControlName="confirmPassword">
+                </mat-form-field>
+
+                <div *ngIf="confirmPassword?.touched">
+                    <div *ngIf="confirmPassword?.errors?.['required']" class="error">
+                        This field is required
+                    </div>
+                    <div *ngIf="password?.value != confirmPassword?.value" class="error">
+                        Passwords do not match
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outer">
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input type="text" matInput formControlName="phoneNo" maxlength="10" minlength="10"
+                        [(ngModel)]="user.phoneNo">
+                </mat-form-field>
+                <div *ngIf="phoneNo?.touched && phoneNo?.invalid">
+                    <div *ngIf="phoneNo?.errors?.['required']" class="error">
+                        Phone number is required
+                    </div>
+                    <div *ngIf="phoneNo?.errors?.['pattern']" class="error">
+                        Phone Number should have 10 digits and should start with 6,7,8 or 9
+                    </div>
+                </div>
+            </div>
+            <div style="visibility: hidden;">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <input type="text" matInput formControlName="phoneNo">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="outer">
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>House No</mat-label>
+                    <input type="text" matInput formControlName="houseNo" [(ngModel)]="user.address.houseNo">
+                </mat-form-field>
+                <div *ngIf="houseNo?.touched && houseNo?.invalid">
+                    <div *ngIf="houseNo?.errors?.['required']" class="error">
+                        House number is required
+                    </div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Street</mat-label>
+                    <input type="text" matInput formControlName="street" [(ngModel)]="user.address.street">
+                </mat-form-field>
+                <div *ngIf="street?.touched && street?.invalid">
+                    <div *ngIf="street?.errors?.['required']" class="error">
+                        Street is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="outer">
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input type="text" matInput formControlName="city" [(ngModel)]="user.address.city">
+                </mat-form-field>
+                <div *ngIf="city?.touched && city?.invalid">
+                    <div *ngIf="city?.errors?.['required']" class="error">
+                        City is required
+                    </div>
+                </div>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Pincode</mat-label>
+                    <input type="text" matInput formControlName="pincode" maxlength="6" minlength="6"
+                        [(ngModel)]="user.address.pinCode">
+                </mat-form-field>
+                <div *ngIf="pincode?.touched && pincode?.invalid">
+                    <div *ngIf="pincode?.errors?.['required']" class="error">
+                        Pincode is required
+                    </div>
+                    <div *ngIf="pincode?.errors?.['pattern']" class="error">
+                        Enter a valid Pincode.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-image">
+            <img width="100" height="100" class="margin-top mat-elevation-z1" [src]="imgUrl">
+            <button mat-button (click)="inputImage.click()" type="button">
+                Choose image
+            </button>
+            <input hidden #inputImage type="file" (change)="uploadfile($event)">
+        </div>
+
+
+        <div style="width: 200px; margin: auto; display: flex;justify-content: space-between;">
+            <button mat-raised-button color="accent" type="submit"
+                [disabled]="registrationDetails.invalid">Register</button>
+            <button mat-raised-button color="warn" type="reset">Reset</button>
+        </div>
+        <div style="margin-top: 1rem;">Already have an account ? <a routerLink="/login">Login</a>
+        </div>
+    </form>
+</div>

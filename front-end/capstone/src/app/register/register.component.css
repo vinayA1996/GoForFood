@@ -1,0 +1,75 @@
+#form {
+    text-align: center;
+    height: fit-content;
+    color: white;
+    background-image: url('../../assets/lidye-1Shk_PkNkNw-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-position: 0 50%;
+    padding-top: 2rem;
+}
+
+form {
+    width: 700px;
+    margin: 0 0 0 2%;
+    box-shadow: 0px 0px 30px black;
+    background-color: rgba(177, 177, 177, 0.199);
+    padding: 2rem 0 2rem 0;
+    border-radius: 4%;
+    animation: display 1s 1;
+}
+
+.outer {
+    display: flex;
+    justify-content: space-around;
+}
+
+@keyframes display {
+    from {
+        transform: translateY(1%);
+        opacity: 0.1;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+mat-form-field {
+    width: 300px;
+}
+
+.error {
+    width: 300px;
+    color: red;
+    text-align: left;
+    margin: -0.7rem 0 0.5rem 0;
+}
+
+a {
+    color: rgb(9, 255, 255);
+}
+
+.profile-image {
+    width: 150px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image img{
+    margin: 0.5rem auto;
+    border-radius: 50%;
+}
+
+.profile-image button{
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.589);
+    font-size: smaller;
+    width: 120px;
+
+}

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="box">
+        <div class="confirmation">
+            <input type="checkbox" id="check" (click)="display()">
+            <label for="check">
+                <div class="check-icon"></div>
+            </label>
+        </div>
+        <div class="display" *ngIf="isDisplayed">
+            <div>
+                <h1>
+                    Order Placed
+                </h1>
+            </div>
+            <div class="details">
+                <div class="user-details">
+                    <p>Username -- <b>{{user.username}}</b> </p>
+                    <p>Billing Address -- <b>{{user.address.houseNo}}, {{user.address.street}}, {{user.address.city}}</b></p>
+                    <p>Pincode -- <b>{{user.address.pinCode}}</b></p>
+                    <p>Contact No  -- <b>{{user.phoneNo}}</b></p>
+                    <p>Ordered From -- <b>{{currentOrder.menu[0].resName}}</b></p>
+                </div>
+                <hr>
+                <div class="order-details">
+                    <tr class="head">
+                        <td>Item Name</td>
+                        <td>Price(per unit)</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </tr>
+                    <div *ngFor="let item of currentOrder.menu" class="items">
+                        <span>{{item.itemName}} </span>
+                        <span>₹ {{item.price}}</span>
+                        <span>{{item.qty}}</span>
+                        <span>₹ {{item.total}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="total">
+                    <p>Subtotal : ₹ {{currentOrder.amount}}</p>
+                    <p>Delivery Charges : ₹ {{50}}</p>
+                    <h3>Grand total : ₹ {{total}} </h3>
+                    <p style="font-size: 0.8rem; margin-top: 1rem; text-align: right;">*Payment Method : Cash-On Delivery</p>
+                </div>
+            </div>
+            <!-- <div class="btn-container">
+                <button (click)="toOrders()">View Orders</button>
+            </div> -->
+        </div>
+    </div>
+</div>

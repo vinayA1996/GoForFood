@@ -1,0 +1,36 @@
+<div class="container font">
+    <div>
+        <h1>Your orders</h1>
+    </div>
+    <div class="orders font">
+        <div class="order" *ngFor="let order of orders; let j=index;">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span>Order Id : {{order.orderId}}</span>
+                        <span>{{order.dateOfOrder}}</span>
+                        <span>{{order.timeOfOrder}}</span>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <tr class="head">
+                    <td>Item Name</td>
+                    <td>Restaurant</td>
+                    <td>Price(per unit)</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+                <div *ngFor="let item of order.menu" class="details">
+                    <span>{{item.itemName}} </span>
+                    <span>{{item.resName}}</span>
+                    <span>₹ {{item.price}}</span>
+                    <span>{{item.qty}}</span>
+                    <span>₹ {{item.total}}</span>
+                </div>
+                <hr>
+                <div id="amount">
+                    <p>Final Amount : ₹ {{this.total(j)}} <br> (Delivery charges incl.) </p>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>

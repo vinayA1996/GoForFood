@@ -1,0 +1,61 @@
+<body>
+    <div class="favorites font">
+        <div>
+            <h1 style="padding-top: 1rem;text-align: center;">Your Favorite Foods</h1>
+        </div>
+        <div class="menu">
+            <div class="card" *ngFor="let m of menu;let j=index">
+                <img src="{{m.image}}" alt="">
+                <div class="card-content">
+                    <span>
+                        <h3 style="font-weight: lighter;">{{m.itemName}}</h3>
+                    </span>
+                    <div style="padding-top: 0.5rem ;">
+                        <h5 style="font-weight: lighter;"><i class="fa-solid fa-hotel" style="margin-right: 0.5rem;"></i>{{m.resName}}</h5>
+                    </div>
+                    <div style="padding-top: 0.5rem ;">
+                        <h5 style="font-weight: lighter;"><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i>{{m.resCity}}</h5>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                        <span id="price">₹ {{m.price}} </span>
+                        <span><button id="order" (click)="addToCart(j);"><i
+                            class="fa-solid fa-cart-plus fa-lg"></i></button></span>
+                        <span><button id="delete" (click)="deleteMenu(email,m)"><i class="fa-solid fa-trash-can fa-2x"></i></button></span>
+                    </div>
+                    <div class="counter">
+                        <button (click)="minus(j)"><i class="fa-solid fa-minus"></i></button>
+                        <input disabled type="text" name="quantity" value="1">
+                        <button (click)="plus(j)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Your Favorite Restaurants</h1>
+        </div>
+        <div class="restaurants">
+            <div class="card" *ngFor="let r of restaurants;let j=index">
+                <img src="{{r.image}}" alt="">
+                <div class="card-content">
+                    <span>
+                        <h3 style="font-weight: lighter;">{{r.resName}}</h3>
+                    </span>
+                    <div style="padding-top: 0.5rem ;">
+                        <h5 style="font-weight: lighter;"><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i>{{r.resCity}}</h5>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                        <span id="rating">{{r.rating}} <i class="fa-solid fa-star" style="font-size: smaller"></i></span>
+                        <a routerLink="{{r.resName}}/menu" (click)="goTo(j)">
+                            <span><button id="menu" >Menu</button></span>
+                        </a>
+                        <span><button id="delete" (click)="deleteRestaurant(email,r)"><i class="fa-solid fa-trash-can fa-2x"></i></button></span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <button id="cart" (click)="createCart(items)">
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+            <span class='badge badge-warning' id='lblCartCount' >{{items.length}}</span>
+        </button>
+    </div>
+</body>

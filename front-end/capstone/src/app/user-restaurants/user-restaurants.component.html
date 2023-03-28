@@ -1,0 +1,26 @@
+<body>
+    <div class="main font">
+        <h1>
+            Best Restaurants in {{currentLocation}}
+        </h1>
+        <app-restaurant-search (searchTextChanged)="onSearchTextChanged($event)"></app-restaurant-search>
+        <div class="cards">
+            <div class="card" *ngFor="let r of restaurants;let j=index">
+                <img src="{{r.image}}" alt="">
+                <div class="card-content">
+                    <span>
+                        <h3 style="font-weight: lighter;">{{r.resName}}</h3>
+                    </span>
+                    <div style="display: flex; justify-content: space-between;  align-items: center;   margin-top: 0.5rem;">
+                        <span id="rating">{{r.rating}} <i class="fa-solid fa-star" style="font-size: smaller"></i></span>
+                        <a routerLink="{{r.resName}}/menu" (click)="goTo(j)">
+                            <span><button id="menu">Menu</button></span>
+                        </a>
+                        <span><button id="fav" (click)="addToFavorite(email,r,j)"><i id="heart"
+                                   name="ur-icon" class="fa-heart fa-regular fa-2x"></i></button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

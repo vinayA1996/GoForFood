@@ -1,0 +1,22 @@
+.body{
+    width: calc(100% - 4rem);
+    margin-left: 4rem;
+    height: 100vh;
+    transition: all 0.3s ease;
+    animation: display 1s 1;
+}
+
+@keyframes display{
+    from{transform: translateY(-5%); opacity: 0.1;}
+    to{transform: translateY(0); opacity: 1;}
+}
+
+.trimmed{
+    width: calc(100% - 12rem);
+    margin-left: 12rem;
+}
+
+.md-screen{
+    width: calc(100% - 4rem);
+    margin-left: 4rem;  
+}

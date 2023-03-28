@@ -1,0 +1,58 @@
+<div id="form" class="font">
+    <form (ngSubmit)="login()" [formGroup]="loginDetails">
+        <h1 style="font-size: 2rem; margin-bottom: 1rem">User Login</h1>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput name="email" formControlName="email" [(ngModel)]="sendEmail" />
+            </mat-form-field>
+        </div>
+        <div *ngIf="email?.touched && email?.invalid">
+            <div *ngIf="email?.errors?.['required']" class="error">
+                Email is required
+            </div>
+            <div *ngIf="email?.errors?.['pattern']" class="error">
+                Enter a valid email
+            </div>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" matInput name="password"
+                    formControlName="password" />
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br />
+        </div>
+        <div *ngIf="password?.touched && password?.invalid">
+            <div *ngIf="password?.errors?.['required']" class="error">
+                Password is required
+            </div>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Select current location</mat-label>
+                <mat-select name="location" formControlName="location">
+                    <mat-option *ngFor="let c of allCities" [value]="c">{{
+                        c
+                        }}</mat-option>
+                    <!-- <mat-option value="two">Second option</mat-option> -->
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="accent" type="submit" [disabled]="loginDetails.invalid">
+                Login
+            </button>
+        </div>
+
+        <div style="margin-top: 1rem">
+            Don't have an account ? <a routerLink="/register">Register here</a>
+        </div>
+        <a routerLink="" (click)="sendLink()"> <em>forgot password?</em></a><br />
+        <a routerLink="/rlogin"> <em>Restaurant Partner</em></a>
+    </form>
+</div>

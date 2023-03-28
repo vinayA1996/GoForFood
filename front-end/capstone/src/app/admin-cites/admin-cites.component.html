@@ -1,0 +1,38 @@
+<h1 id="header">Cities Available On Site</h1>
+
+<div>
+    <button mat-button id="add" (click)="showCityAdd();"> Add City </button>
+</div>
+
+<div class="card">
+    <form (ngSubmit)="submitCity()" [formGroup]="cityDetails" *ngIf="addCity">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label style="margin-bottom: 20px;">City Name</mat-label>
+                <input type="text" matInput name="city" formControlName="city">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label style="margin-bottom: 20px;">City Image</mat-label>
+                <input type="text" matInput name="image" formControlName="image" [(ngModel)]="img">
+            </mat-form-field>
+        </div>
+
+        <div *ngIf="img">
+            <img src="{{img}}" alt="">
+        </div>
+
+
+        <div>
+            <button mat-raised-button color="accent" type="submit" [disabled]="this.cityDetails.invalid" >Submit</button>
+        </div>
+    </form>
+
+    <div class="card" *ngFor="let c of cites;let j=index">
+        <ul>
+            <li style="display: flex; width: 200px; justify-content: space-between; align-items: center;">
+                <h3>{{c.city}}</h3>
+                <span><button id="delete" (click)="deletecity(c.city)"><i class="fa-solid fa-trash-can fa-2x"></i></button></span>
+            </li>
+        </ul>
+    </div>
+</div>

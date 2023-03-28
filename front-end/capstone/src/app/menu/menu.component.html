@@ -1,0 +1,37 @@
+<body>
+    <div class="main font">
+        <div>
+            <h1>
+                {{this.restaurant}}
+            </h1>
+            <app-restaurant-search (searchTextChanged)="onSearchTextChanged($event)"></app-restaurant-search>
+            <div class="cards">
+                <div class="card" *ngFor="let m of menu;let j=index">
+                    <img src="{{m.image}}" alt="">
+                    <div class="card-content">
+                        <span>
+                            <h3 style="font-weight: lighter;">{{m.itemName}}</h3>
+                        </span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                            <p id="price">₹ {{m.price}} </p>
+                            <span><button id="order" (click)="addToCart(j);"><i
+                                        class="fa-solid fa-cart-plus fa-lg"></i></button></span>
+                            <span><button id="fav" (click)="addToFavorite(email,m,j)"><i name="m-icon" id="heart"
+                                        class="fa-heart fa-regular fa-2x"></i></button></span>
+                                       
+                        </div>
+                        <div class="counter">
+                            <button (click)="minus(j)" [disabled]="email == ''"><i class="fa-solid fa-minus" ></i></button>
+                            <input disabled type="text" name="quantity" value="1">
+                            <button (click)="plus(j)" [disabled]="email == ''"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="cart" (click)="createCart(items)">
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+            <span class='badge badge-warning' id='lblCartCount'>{{items.length}}</span>
+        </button>
+    </div>    
+</body>

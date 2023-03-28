@@ -1,0 +1,71 @@
+<div class="sidenav font" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()" ><img src="../../assets/logo3.png" width="50" height="50" alt=""></button>
+        <div class="logo-text" *ngIf="collapsed">Go4Food</div>
+        <!-- <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fa-solid fa-xmark close"></i>
+        </button> -->
+    </div>
+    <div class="profile" *ngIf="(loginStatus$ | async) as loginStatus" [ngClass]="collapsed ? 'bg' : ''">
+        <a class="sidenav-nav-link" *ngIf="loginStatus" >
+            <img src="{{img}}" alt="" width="50" height="50">
+            <div class="name" *ngIf="collapsed" style="font-size: 1.2rem;">{{user.username}} <br> <p style="font-size: 1rem;">{{user.firstName}} {{user.lastName}}</p></div>
+        </a>
+        <div class="options" [ngClass]="collapsed ? 'expand' : ''">
+            <a routerLink="/profile">Edit Profile</a>
+            <a routerLink="/myOrders">View Orders</a>
+        </div>
+    </div>
+    
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" (click)="toMain()">
+            <a class="sidenav-nav-link" routerLink="/home" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
+                <i class="fa-solid fa-house fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Home</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" (click)="toContent()">
+            <a class="sidenav-nav-link" routerLink="/cities" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
+                <i class="fa-solid fa-location-crosshairs fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Cities</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="!(loginStatus$ | async) as loginStatus">
+            <a class="sidenav-nav-link" routerLink="/login" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}" *ngIf="loginStatus">
+             <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Login</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="!(loginStatus$ | async) as loginStatus">
+            <a class="sidenav-nav-link" routerLink="/register" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}" *ngIf="loginStatus">
+                <i class="fa-solid fa-user fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Sign Up</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="sidenav-nav-link" routerLink="/restaurants" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="loginStatus">
+                <i class="fa-solid fa-utensils fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Restaurants Near You</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="sidenav-nav-link" routerLink="/favorites" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="loginStatus">
+                <i class="fa-solid fa-heart fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Favorites</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" (click)="toFooter()">
+            <a class="sidenav-nav-link" routerLink="/about" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
+                <i class="fa-solid fa-circle-info fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">About Us</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="sidenav-nav-link" routerLink="/home" *ngIf="loginStatus" (click)="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Log Out</span>
+            </a>
+        </li>
+    </ul>
+      
+</div>

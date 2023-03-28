@@ -1,0 +1,26 @@
+
+<body>
+    <div class="main font">
+        <div>
+        <div id="search" >
+
+        <!-- <app-restaurant-search  (searchTextChanged)="onSearchTextChanged($event)"></app-restaurant-search> -->
+         
+        </div>
+            <div class="cards">
+                <div class="card" *ngFor="let m of menu;let j=index">
+                    <img src="{{m.image}}" alt="">
+                    <div class="card-content">
+                        <span>
+                            <h3 style="font-weight: lighter;">{{m.itemName}}</h3>
+                        </span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                            <p id="price">₹ {{m.price}} </p>          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>    
+</body>

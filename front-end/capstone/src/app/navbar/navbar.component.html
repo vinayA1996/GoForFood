@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <a href="#" class="logo"><img src="../../assets/Images/logo.png" alt="" width="150" height="50"
+      style="padding-top: 0.5rem;"></a>
+  <ul class="nav-links">
+    <li>
+      <a routerLink="/home">Home</a>
+    </li>
+    <li *ngIf="!(loginStatus$ | async) as loginStatus">
+      <a *ngIf="loginStatus" routerLink="/login">Log In</a>
+    </li>
+    <li *ngIf="(loginStatus$ | async) as loginStatus">
+      <a *ngIf="loginStatus" routerLink="/restaurants">Restaurants Near You</a>
+    </li>
+    <li *ngIf="(loginStatus$ | async) as loginStatus">
+      <a *ngIf="loginStatus" routerLink="/favorites">Favorites</a>
+    </li>
+    <li *ngIf="(loginStatus$ | async) as loginStatus">
+      <a *ngIf="loginStatus" routerLink="/home" (click)="logout()">Log Out</a>
+    </li>
+    <li *ngIf="!(loginStatus$ | async) as loginStatus">
+      <a *ngIf="loginStatus" routerLink="/register">Sign Up</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,130 @@
+<body>
+    <p>restaurant-registration works!</p>
+
+    <div id="form" class="font">
+        <!-- <form [formGroup]="citySelection" (ngSubmit)="Rlogin()">
+        <br>
+        <div>
+          <mat-form-field appearance="outline" width="50px">
+            <mat-label>Select City</mat-label>
+            <mat-select name="location" formControlName="location" [(ngModel)]="city" >
+              <mat-option *ngFor="let c of cites" [value]="c.city">{{c.city}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          &nbsp;
+        </div>
+        </form> -->
+        <form (ngSubmit)="registered()" [formGroup]="registrationDetails">
+            <h1 style="font-size: 2rem; margin-bottom: 1rem">
+                Restaurant Registration
+            </h1>
+
+            <div class="outer">
+                <mat-form-field appearance="outline" width="50px">
+                    <mat-label>Select City</mat-label>
+                    <mat-select name="location" formControlName="location" [(ngModel)]="city">
+                        <mat-option *ngFor="let c of cites" [value]="c.city">{{ c.city }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>          
+            </div>
+
+            <div class="outer">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Restaurant Name</mat-label>
+                        <input type="text" matInput formControlName="resName" [(ngModel)]="restaurant.resName"
+                            maxlength="25" minlength="4" />
+                    </mat-form-field>
+
+                    <div *ngIf="resName?.touched && resName?.invalid">
+                        <div *ngIf="resName?.errors?.['required']" class="error">
+                            Restaurant Name is required
+                        </div>
+                        <div *ngIf="resName?.errors?.['minlength']" class="error">
+                            Invalid Restaurant Name
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="resMail" [(ngModel)]="restaurant.email" />
+                    </mat-form-field>
+
+                    <div *ngIf="resMail?.touched && resMail?.invalid">
+                        <div *ngIf="resMail?.errors?.['required']" class="error">
+                            Email is required
+                        </div>
+                        <div *ngIf="resMail?.errors?.['pattern']" class="error">
+                            Enter a valid email
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer">
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password" [(ngModel)]="restaurant.password" />
+                    </mat-form-field>
+
+                    <div *ngIf="password?.touched && password?.invalid">
+                        <div *ngIf="password?.errors?.['required']" class="error">
+                            Password is required
+                        </div>
+                        <div *ngIf="password?.errors?.['pattern']" class="error">
+                            Password must contain at least 8 characters(one uppercase letter,
+                            one lowercase letter, one number & one special character)
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput formControlName="confirmPassword" />
+                    </mat-form-field>
+                    <div *ngIf="confirmPassword?.touched">
+                        <div *ngIf="confirmPassword?.errors?.['required']" class="error">
+                            This field is required
+                        </div>
+                        <div *ngIf="password?.value != confirmPassword?.value" class="error">
+                            Passwords do not match
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer">
+                <div class="profile-image">
+                    <img width="100" height="100" class="margin-top mat-elevation-z1" [src]="imgUrl" />
+                    <button mat-button (click)="inputImage.click()" type="button">
+                        Choose image
+                    </button>
+                    <input hidden #inputImage type="file" (change)="uploadfile($event)" />
+                </div>
+            </div>
+
+        <div style="
+          width: 200px;
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
+        ">
+                <button mat-raised-button color="accent" type="submit" [disabled]="registrationDetails.invalid">
+                    Register
+                </button>
+                <button mat-raised-button color="warn" type="reset">Reset</button>
+            </div>
+            <div style="margin-top: 1rem">
+                Already have an account ? <a routerLink="/rlogin">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <div></div>
+</body>

@@ -1,0 +1,52 @@
+#footer {
+    background-color: rgb(59, 59, 59);
+    padding: 2rem 4rem 1rem 4rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr 1fr;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2 {
+    margin-bottom: 1rem;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+}
+
+.info li {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.info li p {
+    margin-left: 1rem;
+}
+
+.info,
+.quick {
+    padding-left: 2rem;
+}
+
+.quick li {
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-links li {
+    margin-right: 1.5rem;
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+}

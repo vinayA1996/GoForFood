@@ -1,0 +1,31 @@
+#city {
+    margin-left: 20px;
+}
+
+.resDetails {
+    position: absolute;
+    margin-top: -120px;
+    margin-left: 650px;
+
+
+}
+
+img {
+
+    border: rgb(0, 0, 0) solid;
+    border-radius: 2%;
+    position: absolute;
+    width: 200px;
+    margin-top: -200px;
+    margin-left: 500px;
+}
+
+.herounit {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 20px;
+}
+
+.btn-container button{
+    margin-left: 1rem;
+}

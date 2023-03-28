@@ -1,0 +1,41 @@
+<body>
+    <h1 id="header">Welcome To Admin Page</h1>
+    <mat-toolbar id="nav">
+        <button mat-button (click)="showCity = true; showRestaurant = false">
+            Cities
+        </button>
+        <button mat-button (click)="showRestaurant = true; showCity = false">
+            Restaurants
+        </button>
+        <button mat-button  >
+           <a routerLink="/login" (click)="logOut()" >LogOut</a> 
+        </button>
+    </mat-toolbar>
+    <div id="comp-render">
+        <ng-container *ngIf="showCity">
+            <app-admin-cites></app-admin-cites>
+        </ng-container>
+        <ng-container *ngIf="showRestaurant">
+            <app-admin-restaurant></app-admin-restaurant>
+        </ng-container>
+    </div>
+    <div class="admin" *ngIf="!showRestaurant && !showCity">
+        <ul>
+            <h1>Welcome Admin</h1>
+            <li>
+                <h3>Here You Can DO Different Things Reagading The Site :</h3>
+            </li>
+            <li>
+                <h4>You Can Add New City To Site</h4>
+            </li>
+            <li>
+                <h4>You Can Add New Restaurants In Different Citys</h4>
+            </li>
+            <li>
+                <h4>
+                    You Can Add New Menu To Different Restaurants In Different Citys
+                </h4>
+            </li>
+        </ul>
+    </div>
+</body>

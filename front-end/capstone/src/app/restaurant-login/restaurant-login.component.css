@@ -1,0 +1,40 @@
+
+body{
+
+background-color: wheat;;
+
+}
+#form{
+    text-align: center;
+    height:calc(100vh - 5rem);
+    color: white;
+    background-image: url('../../assets/lidye-1Shk_PkNkNw-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 120% 100%;
+    background-position: 0 50%;
+    padding-top: 5rem;
+    overflow: hidden;
+    
+}
+
+form{
+    width: 500px;
+    margin: 0 0 0 10%;
+    background-color:rgba(177, 177, 177, 0.199);
+    box-shadow: 0px 0px 30px black;
+    padding: 2rem 0 2rem 0;
+    border-radius: 4%;
+    animation: display 1s 1;
+}
+ 
+
+
+@keyframes display{
+    from{transform: translateY(5%); opacity: 0.1;}
+    to{transform: translateY(0); opacity: 1;}
+}
+
+a{
+    color: rgb(9, 255, 255);   
+}

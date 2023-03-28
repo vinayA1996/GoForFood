@@ -1,0 +1,74 @@
+<body>
+  <form [formGroup]="resSelection">
+    <br>
+    <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Menu Items In Restaurant</h1>
+    <button style="margin-bottom: 0.5rem;" mat-raised-button color="accent" (click)="showMenuAdd()">Add Menu</button>
+    <div>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Select Menu </mat-label>
+        <mat-select name="Restaurant" formControlName="Restaurant" [(ngModel)]="restMenu" required>
+          <mat-option *ngFor="let men of menu" [value]="men">
+            {{men.itemName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;
+      <!-- <button mat-raised-button color="accent" type="submit"
+        (click)="editMenu()">Submit</button>
+      &nbsp; -->
+      <button mat-raised-button color="accent" (click)="showMenuEdit();editM()" [disabled]="resSelection.invalid">Edit Menu</button>
+
+    </div>
+  </form>
+
+  <div class="resDetails" *ngIf="showMenu" style="margin-top: -11rem;">
+    <form (ngSubmit)="submitMenu()" [formGroup]="addMenu" style="margin-left: 50px;">
+      <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Menu Details</h1>
+      <div class="herounit">
+        <div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Item Name</mat-label>
+              <input type="text" matInput name="itemName" formControlName="itemName" [(ngModel)]="mName">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Category</mat-label>
+              <input type="text" matInput name="category" formControlName="category" [(ngModel)]="mCategory">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Cuisine</mat-label>
+              <input type="text" matInput name="cuisine" formControlName="cuisine" [(ngModel)]="mCuisine">
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Image</mat-label>
+              <input type="text" matInput name="image" formControlName="image" [(ngModel)]="mImage">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Price</mat-label>
+              <input type="text" matInput name="price" formControlName="price" [(ngModel)]="mPrice">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button *ngIf="show" mat-raised-button color="accent" type="submit" [disabled]="addMenu.invalid">Add Menu</button>
+        <button *ngIf="!show" mat-raised-button color="accent" [disabled]="addMenu.invalid" (click)="editMenuSave()">Save Changes</button>
+        <button *ngIf="!show" mat-raised-button color="warn" [disabled]="addMenu.invalid" (click)="deleteMenu()">Delete</button>
+      </div>
+      <div class="resimg" *ngIf="mImage">
+        <img src="{{mImage}}" alt="">
+      </div>
+    </form>
+  </div>
+</body>

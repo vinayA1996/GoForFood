@@ -1,0 +1,29 @@
+<body>
+    <h1 id="header">Welcome  {{resDAta.resName}}</h1>
+    <mat-toolbar id="nav">
+        <div *ngIf="!active">
+            <h6 style="color: red;font-size: 15px;">
+                Restaurant is Not Active yet
+            </h6>
+        </div>
+        <div *ngIf="active">
+            <h6 style="color: rgb(0, 255, 60);font-size: 15px;">
+                Restaurant is  Active 
+            </h6>
+        </div>
+        <br>
+        <div>
+            <h6 style="color: rgb(0, 255, 60);font-size: 15px;margin-left: 500px;">
+            Current Rating: {{resDAta.rating}}
+         </h6>
+        </div>
+        
+        <button mat-button style="margin-left: 500px;"  >
+           <a routerLink="/login" (click)="logOut()" >LogOut</a> 
+        </button>
+    </mat-toolbar>
+    <div class="menu">
+        <app-admin-menu></app-admin-menu>
+        <app-restaurant-menu></app-restaurant-menu>
+    </div>
+</body>

@@ -1,0 +1,40 @@
+.card{
+width: 250px;
+margin-top: 20px;
+margin-left: 15px;
+}
+
+#header{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#add{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.de{
+   position: absolute;
+   margin-top: -28px;
+   margin-left: 80px; 
+   
+}
+img{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -160px;
+    border: solid black 2px;
+    
+}
+
+#delete{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}

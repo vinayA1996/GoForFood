@@ -1,0 +1,72 @@
+
+<body>
+    <div class="all">
+        <form (ngSubmit)="reset()" [formGroup]="registrationDetails">
+          <div class="outer">
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  formControlName="email"
+                  [(ngModel)]="user.email"
+                />
+              </mat-form-field>
+      
+              <div *ngIf="email?.touched && email?.invalid">
+                <div *ngIf="email?.errors?.['required']" class="error">
+                  Email is required
+                </div>
+                <div *ngIf="email?.errors?.['pattern']" class="error">
+                  Enter a valid email
+                </div>
+              </div>
+            </div>
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  formControlName="password"
+                  [(ngModel)]="user.password"
+                />
+              </mat-form-field>
+      
+              <div *ngIf="password?.touched && password?.invalid">
+                <div *ngIf="password?.errors?.['required']" class="error">
+                  Password is required
+                </div>
+                <div *ngIf="password?.errors?.['pattern']" class="error">
+                  Password must contain at least 8 characters(one uppercase letter,
+                  one lowercase letter, one number & one special character)
+                </div>
+              </div>
+            </div>
+      
+            <div>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput formControlName="confirmPassword" />
+              </mat-form-field>
+      
+              <div *ngIf="confirmPassword?.touched">
+                <div *ngIf="confirmPassword?.errors?.['required']" class="error">
+                  This field is required
+                </div>
+                <div *ngIf="password?.value != confirmPassword?.value" class="error">
+                  Passwords do not match
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <button mat-raised-button color="accent" type="submit"
+                [disabled]="registrationDetails.invalid">Reset Password</button>
+
+        </form>
+      </div>
+</body>
+

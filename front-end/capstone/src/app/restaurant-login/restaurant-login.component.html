@@ -1,0 +1,45 @@
+<body>
+    <div id="form" class="font">
+    <form [formGroup]="resLogin" (ngSubmit)="Rlogin()">
+        <br>
+        <h1 style="font-size: 1.4rem; margin-bottom: 1rem;">Restaurant Login</h1>
+        <div>
+          <mat-form-field appearance="outline" width="50px">
+            <mat-label>Select City</mat-label>
+            <mat-select name="location" formControlName="resCity" [(ngModel)]="Rescity" >
+              <mat-option *ngFor="let c of cites" [value]="c.city">{{c.city}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          &nbsp;
+          <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Restaurant Email</mat-label>
+                <input type="email" matInput name="email" formControlName="resMail" >
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Restaurant Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" matInput name="password"
+                    formControlName="resPassword" />
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br />
+        </div>
+        <!-- <div *ngIf="resPassword?.touched && resPassword?.invalid">
+            <div *ngIf="resPassword?.errors?.['required']" class="error">
+                Password is required
+            </div>
+        </div> -->
+          <button mat-raised-button color="accent" type="submit" >Login</button>
+        </div>
+        <div style="margin-top: 1rem">
+          Not Registered ? <a routerLink="/rregister">Register here</a>
+      </div>
+      </form>
+    </div>
+</body>

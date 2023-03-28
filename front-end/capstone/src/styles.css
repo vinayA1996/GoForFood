@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+*,::after,::before{
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Font;
+    src: url('../src/assets/Fonts/Merriweather-BlackItalic.ttf') format('truetype');
+}
+
+.font{
+    font-family: Font;
+}
+
+html, body { height: 100%; }
+body {padding: 0; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
